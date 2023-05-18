@@ -11,22 +11,22 @@
 
 
   /* colors */
-  --softRed: hsl(7, 99%, 70%)
---Yellow: hsl(51, 100%, 49%)
+  --softRed: hsl(7, 99%, 70%);
+  --Yellow: hsl(51, 100%, 49%);
 /* (graphic design text) */
---Dark: hsl(167, 40%, 24%)
+  --Dark: hsl(167, 40%, 24%);
 /* (photography text) */
---DarkBlue: hsl(198, 62%, 26%)
+  --DarkBlue: hsl(198, 62%, 26%);
 /*  (footer) */
---DarkModerateCyan: hsl(168, 34%, 41%)
+  --DarkModerateCyan: hsl(168, 34%, 41%);
 
 /* Neutral */
 
---VeryDarkblue: hsl(212, 27%, 19%)
---VeryDarkGrayishBlue: hsl(213, 9%, 39%)
---DarkGrayishBlue: hsl(232, 10%, 55%)
---GrayishBlue: hsl(210, 4%, 67%)
---White: hsl(0, 0%, 100%) */
+  --VeryDarkblue: hsl(212, 27%, 19%);
+  --VeryDarkGrayishBlue: hsl(213, 9%, 39%);
+  --DarkGrayishBlue: hsl(232, 10%, 55%);
+  --GrayishBlue: hsl(210, 4%, 67%);
+  --White: hsl(0, 0%, 100%);
 }
 
 *,
@@ -80,6 +80,7 @@ a{
 }
 ul{
   list-style: none;
+  padding: 0;
 }
 
 section {
@@ -130,11 +131,12 @@ nav ul {
   width: 100%;
   height: 100%;
   position: fixed;
-  overflow: hidden;
+  /* overflow: hidden; */
+  min-width: fit-content;
 }
 .menu a {
   display: block;
-  padding: 30px;
+  padding: 20px;
   color: black;
 }
 
@@ -143,16 +145,46 @@ nav ul {
 }
 
 .nav {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  left: 0; /* Add this line to make the navigation centered */
+  background-color: var(--White);
+  width: 90%; /* Adjust the width as needed */
+  max-width: 400px; /* Add a maximum width to limit the width on larger screens */
+  margin: 0 auto; /* Add this line to center the navigation horizontally */
   max-height: 0;
-  transition: max-height .5s ease-out;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
 }
-/* hide checkbox */
+
 #mobile-menu {
   display: none;
 }
 
-@media (max-width: 375px ) {
-  body {
-    background-color: red;
+#mobile-menu:checked ~ .nav {
+  max-height: 300px; /* Adjust the max height as needed */
+}
+
+@media (min-width: 768px) {
+  .ham {
+    display: none;
+  }
+  .nav{
+      max-height: none;
+      top: 0;
+      position: relative;
+      float: right;
+      width: fit-content;
+      background-color: transparent;
+  }
+  .menu a:hover{
+    background-color: transparent;
+    color: var(--gray);
+  }
+  .menu {
+   display: flex;
+   flex-direction: column;
+   
   }
 }
