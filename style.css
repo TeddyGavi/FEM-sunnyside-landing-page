@@ -434,4 +434,8 @@ div.hero-components {
   .photo-text > p {
   font-size: 1.25rem;
   }
+.inner-transform--text-wrapper > a,
+.inner-stand-out--text-wrapper > a {
+  font-size: 1.5rem;
+}
 }
