@@ -25,7 +25,10 @@
   </head>
   <body>
     <header class="header">
-      <div class="left">sunnyside</div>
+      <div class="left"><a href="#">
+        sunnyside
+      </a> 
+    </div>
       <div class="right">
         <input type="checkbox" name="mobile-menu" id="mobile-menu"/>
         <label class="ham" for="mobile-menu"><svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M24 16v2H0v-2h24zm0-8v2H0V8h24zm0-8v2H0V0h24z" fill="#FFF" fill-rule="evenodd"/></svg></label>
@@ -42,22 +45,48 @@
     </header>
     <main>
       <section class="hero">
-        <picture>
-          <source media="(max-width: 480px)" srcset="./images/mobile/image-header.jpg">
-          <source media="(max-width: 768px)" srcset="./images/desktop/image-header.jpg">
-          <img src="./images/desktop/image-header.jpg" alt="orange" >
-        </picture>
-      <section>
-      <section class="cta"></section>
+        <div class="hero-components">
+          <picture class="hero-image">
+            <source media="(max-width: 480px)" srcset="./images/mobile/image-header.jpg">
+            <source media="(max-width: 768px)" srcset="./images/desktop/image-header.jpg">
+            <img src="./images/desktop/image-header.jpg" alt="orange" >
+          </picture>
+          <h1 class="hero-text">We are Creatives</h1>
+          <svg id="arrow-down" width="36" height="114" xmlns="http://www.w3.org/2000/svg"><g stroke="#FFF" stroke-width="6" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3v100M3 95.484l15 15 15-15"/></g></svg>
+        </div>
+        <section>
+          <section class="cta-grid">
+            <div class="transform grid-item">
+              <picture class="egg transform">
+                <source media="(max-width: 480px)" srcset="./images/mobile/image-transform.jpg">
+                <source media="(max-width: 768px )" srcset="./images/desktop/image-transform.jpg">
+                <img src="./images/desktop/image-transform.jpg" alt="egg">
+              </picture>
+              <div class="transform-text">
+                <h3>Transform your brand</h3>
+                <p>     We are
+                  a full-service creative agency specializing in helping brands grow fast.
+                  Engage your clients through compelling visuals that do most of the marketing
+                  for you</p>
+                  <a href="#">Learn more</a>
+              </div>
+            </div>
+            <div class="stand-out grid-item">
+              <picture class="stand-out">
+                <source media="(max-width: 480px)" srcset="./images/mobile/image-stand-out.jpg">
+                <source media="(max-width: 768px )" srcset="./images/desktop/image-stand-out.jpg">
+                <img src="./images/desktop/image-stand-out.jpg" alt="red cup">
+              </picture>
+            </div>
+            <div class="graphic-design grid-item"></div>
+            <div class="photo grid-item"></div> 
+          </section>
       <section class="more"></section>
       <section class="testimonials"></section>
       <section class="banner"></section>
     </main>
     <footer></footer>
-    About Services Projects Contact We are creatives Transform your brand We are
-    a full-service creative agency specializing in helping brands grow fast.
-    Engage your clients through compelling visuals that do most of the marketing
-    for you. Learn more Stand out to the right audience Using a collaborative
+  Stand out to the right audience Using a collaborative
     formula of designers, researchers, photographers, videographers, and
     copywriters, we’ll build and extend your brand in digital places. Learn more
     Graphic design Great design makes you memorable. We deliver artwork that
