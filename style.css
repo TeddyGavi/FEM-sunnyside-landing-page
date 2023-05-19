@@ -105,7 +105,6 @@ header {
   margin: 0 auto;
   display: flex;
   height: 50px;
-  border: 2px solid black;
   justify-content: space-between;
   align-items: center;
   color: var(--White);
@@ -133,7 +132,6 @@ nav ul {
   width: 100%;
   height: 100%;
   position: fixed;
-  /* overflow: hidden; */
   min-width: fit-content;
 }
 .menu {
@@ -168,17 +166,15 @@ nav ul {
   content: "";
   background-color: var(--White);
   position: absolute;
-  /* top: -30px; */
+  top: 0;
   right: 0;
-  /* transform: translateX(50%);
-   */
-   /* transform: translateX(-50%); */
-  width: 0;
+  width: calc(100%);
   height: 0;
-  border: 30px solid black;
-  border-left: 30px solid transparent;
-  /* border-right: 10px solid red; */
-  border-top: 30px solid var(--White);
+  border: 20px solid black;
+  border-left: 0px solid var(--White);
+  border-top: 20px solid rgb(62,191,255);
+  border-right: 20px solid var(--White);
+  border-bottom: 20px solid var(--White);
 }
 
 #mobile-menu {
@@ -186,7 +182,7 @@ nav ul {
 }
 
 #mobile-menu:checked ~ .nav {
-  max-height: 330px; /* Adjust the max height as needed */
+  max-height: 360px; /* Adjust the max height as needed */
 }
 
 @media (min-width: 480px) {
@@ -206,6 +202,9 @@ nav ul {
     /* float: right; */
     /* width: fit-content; */
     background-color: transparent;
+  }
+  .nav::before {
+    display: none;
   }
   .menu a:hover {
     background-color: transparent;
