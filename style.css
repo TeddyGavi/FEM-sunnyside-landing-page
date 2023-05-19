@@ -111,13 +111,13 @@ header {
   color: var(--White);
   z-index: 999;
 }
-header .left {
+.header .left {
   font-family: var(--fraunces);
   font-weight: 900;
   font-size: 20px;
 }
 
-header .right {
+.header .right {
   margin-right: 10px;
 }
 
@@ -219,39 +219,50 @@ div.hero-components {
 
 .cta-grid {
   display: grid;
-  grid-template-columns: 1fr; /* 1 column */
-  grid-template-rows: repeat(6, 1fr); /* 6 rows */
-  gap: 0;
+  /* grid-template-columns: 1fr; */
+  /* grid-template-rows: repeat(6, 1fr); */
+  /* gap: 0; */
+  /* padding: 2rem; */
 }
-.transform-text {
+.grid-item {
+  border: 2px solid black;
+}
+
+.cta-grid picture img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.transform-text,
+.stand-out-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 3rem;
 }
-.transform-text > h3 {
+.inner-transform--text-wrapper,
+.inner-stand-out--text-wrapper {
+  padding: 2rem;
+}
+.inner-transform--text-wrapper > h3,
+.inner-stand-out--text-wrapper > h3 {
   font-family: var(--fraunces);
   font-weight: 900;
   font-size: 2rem;
 }
-.transform-text > p {
+.inner-transform--text-wrapper > p,
+.inner-stand-out--text-wrapper > p {
   font-family: var(--barlow);
   padding: 1rem 0;
   font-size: 1rem;
 }
-/* .transform-text > a {
-  display: inline-block;
-  font-family: var(--fraunces);
-  font-weight: 900;
-  font-size: 1rem;
-  text-transform: uppercase;
-  padding: 0;
-  margin: 0;
-  border-bottom: 3px solid var(--Yellow);
-} */
-.transform-text > a {
+.inner-transform--text-wrapper > a,
+.inner-stand-out--text-wrapper > a {
   display: inline-block;
   font-family: var(--fraunces);
   font-weight: 900;
@@ -261,11 +272,11 @@ div.hero-components {
   margin: 0;
   position: relative;
   z-index: 1;
-  
 }
 
-.transform-text > a::before {
-  content: '';
+.inner-transform--text-wrapper > a::before,
+.inner-stand-out--text-wrapper > a::before {
+  content: "";
   position: absolute;
   width: 110%;
   height: 50%;
@@ -273,11 +284,54 @@ div.hero-components {
   left: -5%;
   background-color: transparent;
   z-index: -1;
+  opacity: 0.5;
+  border-radius: 10px;
   transition: background-color 0.3s ease-in-out;
 }
 
-.transform-text > a:hover::before {
+.inner-transform--text-wrapper > a:hover::before {
   background-color: var(--Yellow);
+}
+.inner-stand-out--text-wrapper > a:hover::before {
+  background-color: var(--softRed);
+}
+
+.transform {
+  order: -2;
+}
+
+.graphic-design,
+.photo {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.graphic-design-text,
+.photo-text {
+  position: absolute;
+  width: 90%;
+  top: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.graphic-design-text > h4,
+.photo-text > h4 {
+  font-family: var(--fraunces);
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.graphic-design-text > p,
+.photo-text > p {
+  font-family: var(--barlow);
+  padding-top: 5%;
 }
 
 @media (min-width: 480px) {
@@ -304,7 +358,7 @@ div.hero-components {
   }
   .menu a:hover {
     background-color: transparent;
-    color: var(--gray);
+    /* color: var(--gray); */
   }
   .menu {
     display: flex;
@@ -321,9 +375,13 @@ div.hero-components {
   #arrow-down {
     display: none;
   }
-  .cta-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+
+  .cta-grid picture img {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -334,5 +392,46 @@ div.hero-components {
   #arrow-down {
     display: flex;
     bottom: 25%;
+  }
+  .cta-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .transform-text,
+  .stand-out-text {
+    padding: 0;
+  }
+  .transform {
+    order: 0;
+  }
+  .cta-grid picture img {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .graphic-design-text > h4,
+  .photo-text > h4 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .inner-transform--text-wrapper > h3,
+  .inner-stand-out--text-wrapper > h3 {
+    font-size: 3rem;
+  }
+  .inner-transform--text-wrapper > p,
+  .inner-stand-out--text-wrapper > p {
+    font-size: 1.25rem;
+  }
+  .graphic-design-text > h4,
+  .photo-text > h4 {
+    font-size: 3rem;
+  }
+  .graphic-design-text > p,
+  .photo-text > p {
+  font-size: 1.25rem;
   }
 }
