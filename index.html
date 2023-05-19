@@ -42,7 +42,11 @@
     </header>
     <main>
       <section class="hero">
-          <img src="./images/mobile/image-header.jpg" alt="orange" >
+        <picture>
+          <source media="(max-width: 480px)" srcset="./images/mobile/image-header.jpg">
+          <source media="(max-width: 768px)" srcset="./images/desktop/image-header.jpg">
+          <img src="./images/desktop/image-header.jpg" alt="orange" >
+        </picture>
       <section>
       <section class="cta"></section>
       <section class="more"></section>

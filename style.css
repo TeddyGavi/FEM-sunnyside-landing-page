@@ -4,23 +4,21 @@
 */
 
 :root {
-
   /* fonts */
-  --barlow:  "Barlow", sans-serif;
+  --barlow: "Barlow", sans-serif;
   --fraunces: "Fraunces", serif;
-
 
   /* colors */
   --softRed: hsl(7, 99%, 70%);
   --Yellow: hsl(51, 100%, 49%);
-/* (graphic design text) */
+  /* (graphic design text) */
   --Dark: hsl(167, 40%, 24%);
-/* (photography text) */
+  /* (photography text) */
   --DarkBlue: hsl(198, 62%, 26%);
-/*  (footer) */
+  /*  (footer) */
   --DarkModerateCyan: hsl(168, 34%, 41%);
 
-/* Neutral */
+  /* Neutral */
 
   --VeryDarkblue: hsl(212, 27%, 19%);
   --VeryDarkGrayishBlue: hsl(213, 9%, 39%);
@@ -75,10 +73,10 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
-a{
+a {
   text-decoration: none;
 }
-ul{
+ul {
   list-style: none;
   padding: 0;
 }
@@ -100,23 +98,27 @@ section {
 
 header {
   position: sticky;
-  width: 100%;
+  width: 90%;
   top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   display: flex;
   height: 50px;
   border: 2px solid black;
   justify-content: space-between;
   align-items: center;
+  color: var(--White);
 }
 header .left {
   font-family: var(--fraunces);
   font-weight: 900;
-  font-size: 18px;
-  margin-left: 10px;
+  font-size: 20px;
+  /* margin-left: 10px; */
 }
 
 header .right {
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 nav ul {
@@ -134,10 +136,15 @@ nav ul {
   /* overflow: hidden; */
   min-width: fit-content;
 }
+.menu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-size: 16px;
+}
 .menu a {
-  display: block;
-  padding: 20px;
-  color: black;
+  /* display: block; */
+  color: var(--DarkGrayishBlue);
 }
 
 .menu a:hover {
@@ -151,11 +158,27 @@ nav ul {
   left: 0; /* Add this line to make the navigation centered */
   background-color: var(--White);
   width: 90%; /* Adjust the width as needed */
-  max-width: 400px; /* Add a maximum width to limit the width on larger screens */
+  max-width: 480px; /* Add a maximum width to limit the width on larger screens */
   margin: 0 auto; /* Add this line to center the navigation horizontally */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
+}
+.nav::before {
+  content: "";
+  background-color: var(--White);
+  position: absolute;
+  /* top: -30px; */
+  right: 0;
+  /* transform: translateX(50%);
+   */
+   /* transform: translateX(-50%); */
+  width: 0;
+  height: 0;
+  border: 30px solid black;
+  border-left: 30px solid transparent;
+  /* border-right: 10px solid red; */
+  border-top: 30px solid var(--White);
 }
 
 #mobile-menu {
@@ -163,28 +186,37 @@ nav ul {
 }
 
 #mobile-menu:checked ~ .nav {
-  max-height: 300px; /* Adjust the max height as needed */
+  max-height: 330px; /* Adjust the max height as needed */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 480px) {
+  header {
+    width: 100%;
+  }
+  header .left, .right {
+    margin: 0 10px;
+  }
   .ham {
     display: none;
   }
-  .nav{
-      max-height: none;
-      top: 0;
-      position: relative;
-      float: right;
-      width: fit-content;
-      background-color: transparent;
+  .nav {
+    max-height: none;
+    top: 0;
+    position: relative;
+    /* float: right; */
+    /* width: fit-content; */
+    background-color: transparent;
   }
-  .menu a:hover{
+  .menu a:hover {
     background-color: transparent;
     color: var(--gray);
   }
   .menu {
-   display: flex;
-   flex-direction: column;
-   
+    display: flex;
+    flex-direction: row;
+  }
+  .menu a {
+    color: var(--White);
+    padding-left: 20px;
   }
 }
