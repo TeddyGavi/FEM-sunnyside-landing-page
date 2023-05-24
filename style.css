@@ -207,7 +207,7 @@ div.hero-components {
   position: relative;
 }
 .hero-image {
-  width: 100%;
+  /* width: 100%; */
   height: auto;
 }
 .hero-text {
