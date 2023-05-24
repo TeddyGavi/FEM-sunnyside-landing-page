@@ -37,7 +37,7 @@
             /></svg
         ></label>
         <nav class="nav">
-          <ul class="menu">
+          <ul class="menu" id="menu">
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Projects</a></li>
@@ -337,6 +337,22 @@
     </div>
   </body>
   <script>
-    console.log("hi")
+    const checkbox = document.getElementById("mobile-menu");
+    const menu = document.getElementById("menu")
+    
+    const handlePreventScroll = () => {
+      if (checkbox.checked) {
+        document.body.classList.add("scroll-disabled");
+      } else {
+        document.body.classList.remove("scroll-disabled");
+      }
+    };
+
+    const toggleMenu = () => {
+      checkbox.checked = false
+      document.body.classList.remove("scroll-disabled");
+    }
+    menu.addEventListener("click", toggleMenu)
+    checkbox.addEventListener("change", handlePreventScroll);
   </script>
 </html>

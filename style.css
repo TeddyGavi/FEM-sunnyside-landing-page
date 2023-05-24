@@ -50,6 +50,10 @@ body {
   padding: 0;
 }
 
+body.scroll-disabled {
+  overflow: hidden;
+}
+
 img,
 picture,
 video,
