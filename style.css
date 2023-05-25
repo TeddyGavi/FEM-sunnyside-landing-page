@@ -278,11 +278,15 @@ div.hero-components {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 70%;
+  margin: auto;
   text-align: center;
 }
 .inner-transform--text-wrapper,
 .inner-stand-out--text-wrapper {
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
 }
 .inner-transform--text-wrapper > h3,
 .inner-stand-out--text-wrapper > h3 {
@@ -298,13 +302,14 @@ div.hero-components {
 }
 .inner-transform--text-wrapper > a,
 .inner-stand-out--text-wrapper > a {
+  width: fit-content;
   display: inline-block;
   font-family: var(--fraunces);
   font-weight: 900;
   font-size: 1rem;
   text-transform: uppercase;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
 }
@@ -330,6 +335,7 @@ div.hero-components {
 .inner-stand-out--text-wrapper > a:hover::before {
   background-color: var(--softRed);
 }
+/* FLIP order in mobile */
 .transform {
   order: -2;
 }
@@ -351,8 +357,8 @@ div.hero-components {
 }
 .graphic-design-text,
 .photo-text {
-  position: absolute;
   width: 90%;
+  position: absolute;
   top: 70%;
   display: flex;
   flex-direction: column;
@@ -366,7 +372,7 @@ div.hero-components {
 .photo-text > h4 {
   font-family: var(--fraunces);
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .graphic-design-text > p,
 .photo-text > p {
@@ -495,13 +501,24 @@ div.hero-components {
   #arrow-down {
     display: none;
   }
-
   .cta-grid picture img {
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .stand-out-text,
+  .transform-text {
+    text-align: left;
+  }
+  .inner-transform--text-wrapper > a,
+  .inner-stand-out--text-wrapper > a {
+    margin: 0;
+  }
+  .photo-text,
+  .graphic-design-text {
+    width: 60%;
   }
 }
 
@@ -566,10 +583,6 @@ div.hero-components {
     height: 100%;
     object-fit: cover;
   }
-  .graphic-design-text > h4,
-  .photo-text > h4 {
-    font-size: 2rem;
-  }
   .testimonial-wrapper {
     display: flex;
     flex-direction: row;
@@ -582,7 +595,6 @@ div.hero-components {
     grid-template-rows: repeat(1, 1fr);
   }
 }
-
 
 /* RESPONSIVE
   - large screens I am changing the font sizes as I saw fit
