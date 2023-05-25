@@ -26,6 +26,15 @@ This is a solution to the [Sunnyside agency landing page challenge on Frontend M
   - **NOTE:** JS not used to toggle the menu (I used a HTML checkbox and `::checked` for that)
   - I did use JS to toggle menu when a users clicks on a "link"
   - Used JS to disable scrolling when the mobile menu is open
+    **NOTE:** This can be done with:
+
+  ```css
+  body:has(#mobile-menu:checked) {
+    overflow: hidden;
+  }
+  ```
+  - Not supported by all browsers just yet.
+
 
 ### The challenge
 
@@ -93,7 +102,7 @@ Users should be able to:
       fill-rule="evenodd"
     /></svg
 ></label>
-```
+````
 
 ```css
 .nav {
@@ -151,11 +160,10 @@ Users should be able to:
 </picture>
 ```
 
-
 ### Continued development
 
-- I am continuing to explore the possibility of CSS 
-- I would like to eliminate all of the JS and have 
+- I am continuing to explore the possibility of CSS
+- I would like to eliminate all of the JS and have
 
 ### Useful resources
 

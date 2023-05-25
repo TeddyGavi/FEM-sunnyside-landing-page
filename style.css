@@ -220,6 +220,9 @@ nav * {
 #mobile-menu:checked ~ .nav {
   max-height: 360px;
 }
+body:has(#mobile-menu:checked) {
+  overflow: hidden;
+}
 
 /* HERO */
 
