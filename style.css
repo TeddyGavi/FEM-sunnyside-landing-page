@@ -85,10 +85,12 @@ ul {
   list-style: none;
   padding: 0;
 }
-
+/* START CSS */
 .hero {
-  margin-top: -50px;
+  margin-top: -70px;
 }
+
+/* SET TINY FRONT END MENTOR ATTR */
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -96,6 +98,11 @@ ul {
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
+
+/* HEADER
+  - divided into left and right
+  - right section contains a hidden HTML checkbox that is used to toggle the drop down menu in mobile
+*/
 
 header {
   position: relative;
@@ -105,7 +112,7 @@ header {
   right: 0;
   margin: 0 auto;
   display: flex;
-  height: 50px;
+  height: 70px;
   justify-content: space-between;
   align-items: center;
   color: var(--White);
@@ -114,7 +121,7 @@ header {
 header .left {
   font-family: var(--fraunces);
   font-weight: 900;
-  font-size: 20px;
+  font-size: 2rem;
 }
 header .left > a {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
@@ -124,12 +131,16 @@ header .right {
   margin-right: 10px;
 }
 
+/* NAV
+  - specific nav items 
+  - contains the ::checked attribute
+*/
+
 nav * {
   transition: all 0.3s ease;
 }
 .nav > ul {
-  font-family: var(--barlow);
-  font-size: 1rem;
+  font-family: var(--fraunces);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -143,11 +154,13 @@ nav * {
   display: flex;
   flex-direction: column;
   height: 100%;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .menu li {
   display: inline-block;
   background-color: transparent;
+  width: 120px;
+  text-align: center;
 }
 .menu li > a {
   color: var(--VeryDarkGrayishBlue);
@@ -156,6 +169,7 @@ nav * {
   display: inline-block;
   padding: 8px 16px;
   border-radius: 20px;
+  background-color: transparent;
 }
 .menu li:hover a,
 .menu li:focus a {
@@ -165,14 +179,20 @@ nav * {
   color: black;
 }
 
+/* CONTROL STYLES
+  - note here that the max-height is used as the transition
+  - the ::before on the nav is to create the illusion of the pointed box
+  - this only works when the nav is fixed, as the border is set to the background color of the hero image 
+  - using a small bit of JS here to stop the scrolling to cement the illusion
+*/
+
 .nav {
   position: fixed;
-  top: 50px;
+  top: 70px;
   right: 0;
   left: 0;
   background-color: var(--White);
-  width: 90%;
-  max-width: 480px;
+  width: 88%;
   margin: 0 auto;
   max-height: 0;
   overflow: hidden;
@@ -191,14 +211,17 @@ nav * {
   border-right: 20px solid var(--White);
   border-bottom: 20px solid var(--White);
 }
-
+.ham-svg {
+  cursor: pointer;
+}
 #mobile-menu {
   display: none;
 }
-
 #mobile-menu:checked ~ .nav {
   max-height: 360px;
 }
+
+/* HERO */
 
 div.hero-components {
   display: flex;
@@ -207,7 +230,6 @@ div.hero-components {
   position: relative;
 }
 .hero-image {
-  /* width: 100%; */
   height: auto;
 }
 .hero-text {
@@ -232,6 +254,11 @@ div.hero-components {
   position: absolute;
   bottom: 25%;
 }
+
+/* RESPONSIVE GRID DISPLAY
+  - here in the transform and stand out sections there is a neat hover effect
+  - this is using ::before to create a "pill" shape underline when the text is hovered
+*/
 
 .cta-grid {
   display: grid;
@@ -303,10 +330,12 @@ div.hero-components {
 .inner-stand-out--text-wrapper > a:hover::before {
   background-color: var(--softRed);
 }
-
 .transform {
   order: -2;
 }
+/* BOTTOM GRID SECTION
+  - contains two relative images and text absolutely positioned ontop
+*/
 
 .graphic-design,
 .photo {
@@ -314,14 +343,12 @@ div.hero-components {
   margin: 0;
   padding: 0;
 }
-
 .graphic-design {
   color: var(--Dark);
 }
 .photo {
   color: var(--DarkBlue);
 }
-
 .graphic-design-text,
 .photo-text {
   position: absolute;
@@ -335,19 +362,21 @@ div.hero-components {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .graphic-design-text > h4,
 .photo-text > h4 {
   font-family: var(--fraunces);
   font-weight: 900;
   font-size: 2rem;
 }
-
 .graphic-design-text > p,
 .photo-text > p {
   font-family: var(--barlow);
   padding-top: 5%;
 }
+
+/* TESTIMONIAL 
+  - simple section moving from a 3 column display to a single column in mobile
+*/
 
 .testimonials {
   display: flex;
@@ -394,9 +423,22 @@ div.hero-components {
   font-family: var(--barlow);
   color: var(--GrayishBlue);
 }
+
+/* BOTTOM IMAGES
+  - responsive grid design
+*/
 .bottom-banner {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+/* FOOTER 
+  - contains basic design and styling as close asI could get to images
+  - using flexbox to achieve responsiveness
+*/
+
+.footer * {
+  transition: color 0.3s ease-in-out;
 }
 .footer {
   background-color: var(--DarkModerateCyan);
@@ -407,10 +449,6 @@ div.hero-components {
   fill: var(--Dark);
   padding: 3rem 0;
 }
-.footer * {
-  transition: color 0.3s ease-in-out;
-}
-
 .footer-title {
   font-family: var(--fraunces);
   font-weight: 900;
@@ -427,11 +465,9 @@ div.hero-components {
   width: 100%;
   justify-content: space-around;
 }
-
 .footer-text > a:hover {
   color: var(--White);
 }
-
 .footer > .social-links {
   padding: 3rem 0;
   display: flex;
@@ -439,53 +475,20 @@ div.hero-components {
   width: 50%;
   justify-content: space-around;
 }
-
 .social-links > a > svg {
   transition: fill 0.3s ease-in-out;
 }
-
 .social-links > a:hover svg {
   cursor: pointer;
   fill: var(--White);
 }
 
+/* RESPONSIVE
+  - this is tricky as I took a mobile first design these styles apply only to devices above 480 in width
+  - same pattern with the next responsive section as well
+*/
+
 @media (min-width: 480px) {
-  header {
-    width: 100%;
-  }
-  header .left {
-    margin-left: 10px;
-  }
-  header .right {
-    margin-right: 10px;
-  }
-  .ham {
-    display: none;
-  }
-  .nav {
-    max-height: none;
-    top: 0;
-    position: relative;
-    background-color: transparent;
-  }
-  .nav::before {
-    display: none;
-  }
-  .menu a:hover {
-    background-color: transparent;
-    /* color: var(--gray); */
-  }
-  .menu {
-    display: flex;
-    flex-direction: row;
-  }
-  .menu li > a {
-    color: var(--White);
-  }
-  .menu li:hover a,
-  .menu li:focus a{
-    background-color: var(--White);
-  }
   .hero-text {
     font-size: 2.5rem;
   }
@@ -503,6 +506,41 @@ div.hero-components {
 }
 
 @media (min-width: 768px) {
+  header {
+    width: 100%;
+  }
+  header .left {
+    margin-left: 16px;
+  }
+  header .right {
+    margin-right: 16px;
+  }
+  .ham {
+    display: none;
+  }
+  .nav {
+    max-height: none;
+    top: 0;
+    position: relative;
+    background-color: transparent;
+  }
+  .nav::before {
+    display: none;
+  }
+  .menu a:hover {
+    background-color: transparent;
+  }
+  .menu {
+    display: flex;
+    flex-direction: row;
+  }
+  .menu li > a {
+    color: var(--White);
+  }
+  .menu li:hover a,
+  .menu li:focus a {
+    background-color: var(--White);
+  }
   .hero-text {
     font-size: 3rem;
   }
@@ -545,7 +583,15 @@ div.hero-components {
   }
 }
 
+
+/* RESPONSIVE
+  - large screens I am changing the font sizes as I saw fit
+*/
+
 @media (min-width: 1440px) {
+  #arrow-down {
+    bottom: 35%;
+  }
   .inner-transform--text-wrapper > h3,
   .inner-stand-out--text-wrapper > h3 {
     font-size: 3rem;
