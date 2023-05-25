@@ -7,6 +7,7 @@ This is a solution to the [Sunnyside agency landing page challenge on Frontend M
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
+  - [View](#view)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -20,6 +21,12 @@ This is a solution to the [Sunnyside agency landing page challenge on Frontend M
 
 ## Overview
 
+- My goal was to use mainly HTML and CSS and little as possible JavaScript
+- I only used JS to create small interaction when the user clicks on the mobile menu view
+  - **NOTE:** JS not used to toggle the menu (I used a HTML checkbox and `::checked` for that)
+  - I did use JS to toggle menu when a users clicks on a "link"
+  - Used JS to disable scrolling when the mobile menu is open
+
 ### The challenge
 
 Users should be able to:
@@ -29,22 +36,29 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Screenshot of website layout and design](./current-view/Current.png)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+### View
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Video of Website Usage](./current-view/demo.webm)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub repo](https://github.com/TeddyGavi/FEM-sunnyside-landing-page)
+- Live Site URL: [live site URL ](https://teddygavi.github.io/FEM-sunnyside-landing-page/)
 
 ## My process
+
+- First step was to get the CSS variables set up and figure out the provided colors and fonts
+- Next I laid out the basic HTML structure in coordination with the CSS
+- For example I build the header HTML, then I added the CSS
+- I continued this way in order to complete the build in a top down manner
+- Once I got to the grid section I wrote the HTML fully down to the attribution and styled everything afterwards
+- The reason for this was the lower sections are simpler then the header/mobile menu
+- I was able to speed through the last sections while making sure of no breaking changes this way
+- This allowed for me to keep track of class names in a clearer manner
+- Similar to how I would use Tailwind CSS in Next js
+- ie. Complete an entire component before moving on!
 
 ### Built with
 
@@ -53,61 +67,107 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Vanilla JS
+- No libraries or abstractions
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+- The biggest takeaway here is that HTML and CSS are really powerful!
+- An interesting and learning experience for me was how to implement a drop down menu using only HTML CSS
+  - My solution entails using a hidden checkbox
+  - When `::checked` via the CSS pseudo selector the drop down menu is shown
+  - added a transition for `max-height` to give the illusion of the menu folding out
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<input type="checkbox" name="mobile-menu" id="mobile-menu" />
+<label class="ham" for="mobile-menu">
+  <svg
+    class="ham-svg"
+    width="24"
+    height="18"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M24 16v2H0v-2h24zm0-8v2H0V8h24zm0-8v2H0V0h24z"
+      fill="#FFF"
+      fill-rule="evenodd"
+    /></svg
+></label>
 ```
 
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.nav {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  left: 0;
+  background-color: var(--White);
+  width: 88%;
+  margin: 0 auto;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
 }
+.nav::before {
+  content: "";
+  background-color: var(--White);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100%);
+  height: 0;
+  border-left: 0px solid var(--White);
+  border-top: 20px solid rgb(62, 191, 255);
+  border-right: 20px solid var(--White);
+  border-bottom: 20px solid var(--White);
+}
+.ham-svg {
+  cursor: pointer;
+}
+#mobile-menu {
+  display: none;
+}
+#mobile-menu:checked ~ .nav {
+  max-height: 360px;
+}
+
+/* see code inside responsive media query if curious for more  */
 ```
 
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
+- Another interesting tag I used was `picture`
+  - Allowed me to style an image responsively directly in the HTML, and allow a fallback
+
+```html
+<picture class="orange">
+  <source
+    media="(max-width: 480px)"
+    srcset="./images/mobile/image-photography.jpg"
+  />
+  <source
+    media="(max-width: 768px )"
+    srcset="./images/desktop/image-photography.jpg"
+  />
+  <img src="./images/desktop/image-photography.jpg" alt="orange" />
+</picture>
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- I am continuing to explore the possibility of CSS 
+- I would like to eliminate all of the JS and have 
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- I am not afraid to admit that I used ChatGPT (aka chat gipitee) to understand how certain CSS selectors work and also explain to me what my CSS was doing, this is very useful in troubleshooting
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Website - [Matt Davis](https://matcdavis.dev/)
+- Frontend Mentor - [@TeddyGavi](https://www.frontendmentor.io/profile/TeddyGavi)
+- Twitter - [@MatcDavis](https://twitter.com/MatcDavis)
+- LinkedIn - [Matthew Davis](https://www.linkedin.com/in/matcdavis/)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Thank you to Front End Mentor for this challenge! Looking forward to the next one.
